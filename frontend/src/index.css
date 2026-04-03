@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bloomberg-bg: #000000;
+  --color-bloomberg-panel: #0B0D11;
+  --color-bloomberg-border: #3c3c3c;
+  --color-bloomberg-text: #f2f2f2;
+  --color-bloomberg-primary: #ff8c00;
+  --color-bloomberg-secondary: #2563eb;
+  --color-bloomberg-green: #00cc00;
+  --color-bloomberg-red: #ff0000;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bloomberg-bg);
+    color: var(--color-bloomberg-text);
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--color-bloomberg-border);
+  border-radius: 9999px;
+}
+
+/* Typing effect cursor animation */
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.typing-cursor::after {
+  content: '▋';
+  display: inline-block;
+  animation: blink 1s step-end infinite;
+  color: var(--color-bloomberg-primary);
+  margin-left: 4px;
+}
+
+/* File chip entrance animation */
+@keyframes chip-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Document picker dropdown animation */
+@keyframes picker-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
